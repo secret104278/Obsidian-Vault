@@ -1,0 +1,105 @@
+{
+  "main": {
+    "id": "f2de963eaa27418d",
+    "type": "split",
+    "children": [
+      {
+        "id": "8da50abbf8ae30a3",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Azure Storage.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6e4fa410bcc2a9ae",
+    "type": "split",
+    "children": [
+      {
+        "id": "72a72a3536227807",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2cf2b40d5b8f54f0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a47fb2d61b923d6d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#Azure",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5a2416505812e387",
+    "type": "split",
+    "children": [
+      {
+        "id": "ec76bcd70eb58dba",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f6a934b18ec8c8ef",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Azure Storage.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9e124b9f2f02a532",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "8da50abbf8ae30a3",
+  "lastOpenFiles": [
+    "Azure Storage.md",
+    "MLOps Infographic.pdf",
+    "MLOps.md",
+    "Storage Survey.md"
+  ]
+}
