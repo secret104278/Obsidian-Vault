@@ -1,4 +1,6 @@
 # Blob Storage
+[Supported Features Table](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts)
+
 ## [Redunduency](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) 
 - Locally redundant storage (LRS)
 	- **synchronously** replica **within a single physical location** in the primary region
@@ -59,6 +61,16 @@ app 要在 primary failure 才能 r/w secondary 的資料，不過可以另外 e
 * 在一般的 blob， folder 也是一個 blob，只是有 `x-ms-meta-hdi_isfolder=true` 的 metadata。在 data lake，folder 則是一個特殊的 `resource=directory`
 * 有現成的 tool 能 mount 成 filesystem 只有 blobfuse + block blob / data lake 或 nfs + data lake
 
+## Tiering
+- 三種 tier - Hot, Cool, Archive
+- tiering 只支援 Standard account type，不支援 Premium
+- 在 Archive 的檔案是不可 read/write 的
+- 每個 tier 都有規定檔案最短要存在該 tier 多久，否則會收 early deletion fee
+	- 例外：假如 default 是設 Cool，但是提早把檔案移到 Archive 的話不會收 early deletion fee
+- Hot 移到 Cool / Archive，Cool 移到 Hot 都是立刻完成；Archive 移到 Cool / Hot （稱為 Rehydrating）最久可能要 15hr
+- 可以手動 call api 改變 tier （[Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier) / [Copy Blob](https://docs.microsoft.com/en-us/rest/api/storageservices/copy-blob)）或用 [Blob lifecycle management](https://docs.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview)
+	- Copy Blob 可以用在暫時把檔案從 cooler 複製到 hotter tier，雖然佔兩倍空間的錢，但不會被收 early deletion fee
+
 ## Azure Data Lake Storage Gen2
 AZ data lake = blob storage + Enable hierarchical namespace
 
@@ -83,3 +95,4 @@ AZ data lake = blob storage + Enable hierarchical namespace
 	- blobfuse random write/append 檔案會在 `open()` 時下載整個檔案到 local，然後最後 `flush()` 的時上傳整個檔案。nfs mount 就像是一般 nfs 只上傳或是下載 request 的片段。
 - [目前只能用 VNet 去做 security 的限制](https://docs.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support#network-security)
 - [create storage account 之後就沒辦法再改，不支援 geo redundancy](https://docs.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-known-issues)
+
