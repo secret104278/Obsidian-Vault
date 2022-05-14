@@ -1,5 +1,6 @@
 {
   "legacyEditor": false,
   "spellcheck": true,
-  "strictLineBreaks": true
+  "strictLineBreaks": true,
+  "newLinkFormat": "relative"
 }

@@ -1,7 +1,7 @@
 # Blob Storage
 [Supported Features Table](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts)
 
-## [Redunduency](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) 
+## [Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) 
 - Locally redundant storage (LRS)
 	- **synchronously** replica **within a single physical location** in the primary region
 	- server rack and drive failures
